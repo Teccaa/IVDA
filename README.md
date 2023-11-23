@@ -1,9 +1,8 @@
 Open the folder "world-map-vue" to see details
 
-Next Update
-- The upper right corner will be a histogram of scores for each country for each SDG label
-- SDG icons are currently too small, I'm thinking of a way to make them clearer
-- Magnifying glass icon and question mark icon for search box will be added
+Updated
+- Currently, both the SDG Category and the map can be clicked, and the data will be successfully transferred to the Table.
+- The map package has been updated to Mapbox (with higher aesthetics), and when you click on a country, the name of the clicked country will be output at the top.
+- The current web page has been modified to adapt to 100% screen size (the positions of each component are fixed).
 
-First,
-npm install leaflet
+- Run npm install firstly
