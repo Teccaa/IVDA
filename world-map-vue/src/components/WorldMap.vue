@@ -1,20 +1,45 @@
 <template>
   <div id="world-map"></div>
+  <div id="clicked-country">
+    <p v-if="clickedCountry">Clicked Country: {{ clickedCountry }}</p>
+  </div>
 </template>
 
 <script>
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default {
   name: 'WorldMap',
+  data() {
+    return {
+      clickedCountry: null,
+    };
+  },
   mounted() {
+    mapboxgl.accessToken = 'pk.eyJ1Ijoib3dlbmVnbyIsImEiOiJjbHBicDF1NjYwbDVhMmtwZDRxMjZ0c3F6In0.byDv07-88KvMWM3pjPxBlQ'; // Replace with your Mapbox Access Token
 
-    const map = L.map('world-map').setView([0, 0], 2);
+    const map = new mapboxgl.Map({
+      container: 'world-map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [0, 0],
+      zoom: 2,
+      language: 'en',
+    });
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    }).addTo(map);
-  }
+    // Add click event listener to the map
+    map.on('click', (e) => {
+
+      const features = map.queryRenderedFeatures(e.point);
+
+      if (features.length > 0 && features[0].properties && features[0].properties.name) {
+        this.clickedCountry = features[0].properties.name;
+        // Emit a custom event to pass the clickedCountry to the parent component
+        this.$emit('country-clicked', this.clickedCountry);
+      }
+    });
+
+  },
 };
 </script>
 
@@ -23,8 +48,14 @@ export default {
   position: fixed;
   top: 50px;
   left: 10px;
-  height: 700px;
-  width: 1025px;
+  height: 600px;
+  width: 925px;
   z-index: 999;
+}
+
+#clicked-country {
+  position: fixed;
+  top: 10px;
+  left: 10px;
 }
 </style>

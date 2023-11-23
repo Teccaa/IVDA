@@ -2,31 +2,23 @@
 
 <template>
   <div id="app">
-    <div class="search-box">
-      <i class="fas fa-search"></i>
-      <input type="text" placeholder="Search for documents with keywords" />
-      <i class="fas fa-question-circle"></i>
-    </div>
-    <WorldMap :icons="icons" />
-    <IconContainer :icons="icons" />
-    <StatisticsTable :documents="documents" />
-    <ScoreGraph />
+    <WorldMap :icons="icons"
+              @country-clicked="handleCountryClicked" />
+    <IconContainer :icons="icons" @icon-click="updateCurrentTopic" />
+    <StatisticsTable :documents="documents" :currentTopic="currentTopic" :currentCountry="currentCountry"/>
   </div>
 </template>
-
 
 <script>
 import WorldMap from "@/components/WorldMap.vue";
 import IconContainer from "@/components/IconContainer.vue";
 import StatisticsTable from "@/components/StatisticsTable.vue";
-import ScoreGraph from "@/components/ScoreGraph.vue"; // 瀵煎叆Graph缁勪欢
 
 export default {
   components: {
     WorldMap,
     IconContainer,
     StatisticsTable,
-    ScoreGraph
   },
   data() {
     return {
@@ -34,12 +26,20 @@ export default {
         id: i + 1,
         path: require(`@/assets/icons/icon${i + 1}.png`),
       })),
-      documents: [
-        { id: 1, title: "Document 1", author: "Author 1" },
-        { id: 2, title: "Document 2", author: "Author 2" },
-
-      ],
+      documents: [], // Update with your actual documents data
+      currentTopic: '', // Added to track the current topic
+      currentCountry: '', // Added to track the current topic
     };
+  },
+  methods: {
+    updateCurrentTopic(topic) {
+      this.currentTopic = topic;
+    },
+    handleCountryClicked(clickedCountry) {
+      // Do something with the clicked country data
+      this.currentCountry = clickedCountry;
+      console.log('Clicked Country in App.vue:', clickedCountry);
+    },
   },
 };
 </script>
@@ -53,6 +53,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+
   width: 100%;
   background-color: rgba(255, 255, 255, 0.7);
   padding: 10px;
