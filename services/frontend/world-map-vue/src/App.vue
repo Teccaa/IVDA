@@ -9,22 +9,21 @@
     </div>
     <IconContainer :icons="icons" />
     <WorldMap :icons="icons" />
-
     <StatisticsTable :documents="documents" />
-    <ScoreGraph />
+    <ScoreGraph :data="chartData" :layout="chartLayout" chart-title="My Bar Chart" />
   </div>
 </template>
 
 
 <script>
-import WorldMap from "@/components/WorldMap.vue";
+//import WorldMap from "@/components/WorldMap.vue";
 import StatisticsTable from "@/components/StatisticsTable.vue";
 import IconContainer from "@/components/IconContainer.vue";
 import ScoreGraph from "@/components/ScoreGraph.vue";
 
 export default {
   components: {
-    WorldMap,
+    //WorldMap,
     IconContainer,
     StatisticsTable,
     ScoreGraph
@@ -83,6 +82,7 @@ export default {
 .score-graph {
   position: fixed;
   top: 0;
-  right: 0;
+  right: 1000px;
+  left: 0;
 }
 </style>
