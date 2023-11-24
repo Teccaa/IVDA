@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       selectedArea: "Global",
-      selectedSDG: 4,
+      selectedSDG: 1,
       map: null,
     };
   },

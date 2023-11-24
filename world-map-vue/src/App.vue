@@ -2,10 +2,13 @@
 
 <template>
   <div id="app">
-    <WorldMap :icons="icons"
-              @country-clicked="handleCountryClicked" />
+    <WorldMap :icons="icons" @country-clicked="handleCountryClicked" />
     <IconContainer :icons="icons" @icon-click="updateCurrentTopic" />
-    <StatisticsTable :documents="documents" :currentTopic="currentTopic" :currentCountry="currentCountry"/>
+    <StatisticsTable
+      :documents="documents"
+      :currentTopic="currentTopic"
+      :currentCountry="currentCountry"
+    />
   </div>
 </template>
 
@@ -27,18 +30,17 @@ export default {
         path: require(`@/assets/icons/icon${i + 1}.png`),
       })),
       documents: [], // Update with your actual documents data
-      currentTopic: '', // Added to track the current topic
-      currentCountry: '', // Added to track the current topic
+      currentTopic: "", // Added to track the current topic
+      currentCountry: "", // Added to track the current topic
     };
   },
   methods: {
     updateCurrentTopic(topic) {
       this.currentTopic = topic;
     },
-    handleCountryClicked(clickedCountry) {
-      // Do something with the clicked country data
-      this.currentCountry = clickedCountry;
-      console.log('Clicked Country in App.vue:', clickedCountry);
+    handleCountryClicked(selectedArea) {
+      this.currentCountry = selectedArea;
+      console.log("Selected area in App.vue:", selectedArea);
     },
   },
 };

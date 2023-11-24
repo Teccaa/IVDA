@@ -2,7 +2,12 @@
 
 <template>
   <div class="icon-container">
-    <div v-for="icon in icons" :key="icon.id" @click="handleIconClick(icon)" class="icon-item">
+    <div
+      v-for="icon in icons"
+      :key="icon.id"
+      @click="handleIconClick(icon)"
+      class="icon-item"
+    >
       <img :src="icon.path" alt="Icon" />
     </div>
   </div>
@@ -15,7 +20,7 @@ export default {
   },
   methods: {
     handleIconClick(icon) {
-      this.$emit('icon-click', this.getTopicName(icon.id));
+      this.$emit("icon-click", icon.id, this.getTopicName(icon.id));
     },
     getTopicName(iconId) {
       const topicMapping = {
@@ -37,7 +42,7 @@ export default {
         16: "Peace, Justice and Strong Institutions",
         17: "Partnerships for the Goals",
       };
-      return topicMapping[iconId] || '';
+      return topicMapping[iconId] || "";
     },
   },
 };
