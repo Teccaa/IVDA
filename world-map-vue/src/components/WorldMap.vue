@@ -1,8 +1,5 @@
 <template>
   <div id="world-map"></div>
-  <div id="clicked-country">
-    <p v-if="clickedCountry">Clicked Country: {{ clickedCountry }}</p>
-  </div>
 </template>
 
 <script>
