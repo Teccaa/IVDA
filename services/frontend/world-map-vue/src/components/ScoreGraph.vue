@@ -14,10 +14,13 @@ function getTop5Countries(data, selectedScore) {
   // Slice the top 5 countries
   const top5Countries = sortedData.slice(0, 5);
 
-  // Calculate the average score for the top 5 countries
-  //const averageScore = top5Countries.reduce((sum, country) => sum + country[selectedScore], 0) / top5Countries.length;
-
-  return { top5Countries, averageScore };
+  const top5CountriesWithSelectedScore = top5Countries.map(countryData => {
+    return {
+      country: countryData.country,
+      [selectedScore]: countryData[selectedScore]
+    };
+  });
+  return top5CountriesWithSelectedScore;
 }
 
 export default {
@@ -40,12 +43,7 @@ export default {
       const selectedSDG = 'SDG1_avg'; //add a '-average' to the selected score
       const data = [
         {
-          x: getTop5Countries(this.$data.items, selectedScore).map(
-            x => x.Country
-          ),
-          y: getTop5Countries(this.$data.items, selectedScore).map(
-            x => x.selectedScore),
-          type: "bar"
+          getTop5Countries(this.items, selectedSDG);
         }
       ];
       const layout = {
