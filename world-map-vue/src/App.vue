@@ -2,6 +2,10 @@
 
 <template>
   <div id="app">
+    <div class="search-box">
+      <i class="fa fa-search"></i>
+      <input type="text" placeholder="Search..." v-model="searchQuery" />
+    </div>
     <WorldMap :icons="icons"
               @country-clicked="handleCountryClicked" />
     <IconContainer :icons="icons" @icon-click="updateCurrentTopic" />
