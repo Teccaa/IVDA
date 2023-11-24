@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       selectedArea: "Global",
-      selectedSDG: 1,
+      selectedSDG: 4,
       map: null,
     };
   },
@@ -77,25 +77,39 @@ export default {
   },
   methods: {
     colorCountry(countryName, color, alpha = 1) {
+      const layerId = `country-${countryName}`;
       const rgbaColor = `rgba(${color.r}, ${color.g}, ${color.b}, ${alpha})`;
-      this.map.setPaintProperty("country_areas", "fill-color", [
-        "case",
-        ["==", ["get", "NAME_EN"], countryName],
-        rgbaColor,
-        "transparent",
-      ]);
+
+      // Check if layer exists
+      if (this.map.getLayer(layerId)) {
+        // Update the color if the layer exists
+        this.map.setPaintProperty(layerId, "fill-color", rgbaColor);
+      } else {
+        // Create a new layer for the country if it doesn't exist
+        this.map.addLayer({
+          id: layerId,
+          type: "fill",
+          source: "countries",
+          filter: ["==", ["get", "NAME_EN"], countryName],
+          paint: {
+            "fill-color": rgbaColor,
+            "fill-opacity": 0.8,
+          },
+        });
+      }
     },
 
     async loadSDGAverages() {
-      // if (!this.selectedSDG) return;
+      if (!this.selectedSDG) return;
 
       try {
         console.log(
-          `Trying to fetch: '../../data/sdg_averages/sdg${this.selectedSDG}_averages.json'`
+          `Trying to fetch: '/sdg_averages/sdg${this.selectedSDG}_averages.json'`
         );
         const response = await fetch(
-          `../../data/sdg_averages/sdg${this.selectedSDG}_averages.json`
+          `/sdg_averages/sdg${this.selectedSDG}_averages.json`
         );
+        console.log("Fetching SDG data successful!");
         const data = await response.json();
         this.colorCountriesBasedOnSDG(data);
       } catch (error) {
@@ -104,10 +118,14 @@ export default {
     },
 
     colorCountriesBasedOnSDG(sdgData) {
+      console.log("Induce colorization process of areas ...");
       sdgData.forEach((region) => {
         const countryName = region["Geographical Region"];
+        console.log(`Area: ${countryName}`);
         const sdgAverage = region["SDG Average"];
+        console.log(`SDG Average: ${sdgAverage}`);
         this.colorCountry(countryName, { r: 0, g: 255, b: 0 }, sdgAverage);
+        console.log("Coloring successful!");
       });
     },
   },

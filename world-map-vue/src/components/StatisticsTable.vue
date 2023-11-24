@@ -71,7 +71,7 @@ export default {
     numberOfPapers: Number,
     averageSDGScore: Number,
     currentTopic: String,
-    currentCountry: String, // Add the currentCountry prop
+    currentCountry: String,
   },
 };
 </script>
