@@ -1,16 +1,9 @@
+<!-- IconContainer.vue -->
+
 <template>
   <div class="icon-container">
-    <div
-      v-for="icon in icons"
-      :key="icon.id"
-      class="icon-item"
-      @mouseover="showIconInfo(icon)"
-      @mouseout="hideIconInfo"
-    >
-      <img :src="generateIconPath(icon.id)" alt="icon" class="icon-image" />
-      <div v-if="icon === hoveredIcon" class="icon-info">
-        <div class="icon-description">{{ icon.description }}</div>
-      </div>
+    <div v-for="icon in icons" :key="icon.id" @click="handleIconClick(icon)" class="icon-item">
+      <img :src="icon.path" alt="Icon" />
     </div>
   </div>
 </template>
@@ -20,20 +13,31 @@ export default {
   props: {
     icons: Array,
   },
-  data() {
-    return {
-      hoveredIcon: null,
-    };
-  },
   methods: {
-    showIconInfo(icon) {
-      this.hoveredIcon = icon;
+    handleIconClick(icon) {
+      this.$emit('icon-click', this.getTopicName(icon.id));
     },
-    hideIconInfo() {
-      this.hoveredIcon = null;
-    },
-    generateIconPath(id) {
-      return require(`@/assets/icons/icon${id}.png`);
+    getTopicName(iconId) {
+      const topicMapping = {
+        1: "No Poverty",
+        2: "Zero Hunger",
+        3: "Good Health and Well-Being",
+        4: "Quality Education",
+        5: "Gender Equality",
+        6: "Clean Water and Sanitation",
+        7: "Affordable and Clean Energy",
+        8: "Decent Work and Economic Growth",
+        9: "Industry, Innovation and Infrastructure",
+        10: "Reduced Inequalities",
+        11: "Sustainable Cities and Communities",
+        12: "Responsible Consumption and Production",
+        13: "Climate Action",
+        14: "Life Below Water",
+        15: "Life on Land",
+        16: "Peace, Justice and Strong Institutions",
+        17: "Partnerships for the Goals",
+      };
+      return topicMapping[iconId] || '';
     },
   },
 };
@@ -43,36 +47,18 @@ export default {
 .icon-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  overflow-x: auto;
   padding: 10px;
+  max-width: 100%;
 }
 
 .icon-item {
-  position: relative;
-  margin: 6px;
+  margin-right: 0px;
 }
 
-.icon-item .icon-image {
-  width: 80px;
-  height: 60px;
-}
-
-.icon-info {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 8px;
-  border-radius: 4px;
-  display: none;
-}
-
-.icon-info .icon-description {
-  font-weight: bold;
-}
-
-.icon-item:hover .icon-info {
-  display: block;
+.icon-item img {
+  max-width: 54px;
+  height: auto;
+  cursor: pointer;
 }
 </style>
