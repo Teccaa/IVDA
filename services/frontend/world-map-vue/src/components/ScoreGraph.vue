@@ -1,13 +1,14 @@
-
 <template>
   <div>
-    <h2>{{ "Barplot" }}</h2>
+    <h2></h2>
     <div ref="plotlyChart"></div>
-  </div>
-  <div style="height: 90vh">
-    <div id='myDiv' style="height: inherit"></div>
+    
+    <div id='myDiv' style="position: fixed; top: 0; right: 0; height: 60vh;"></div>
+
+
   </div>
 </template>
+
 
 <script>
 import axios from "axios";
@@ -75,6 +76,7 @@ export default {
     },
     drawBarPlot() {
       const selectedSDG = 'sdg1_avg';
+        
       const top5CountriesData = getTop5Countries(this.data, selectedSDG);
       console.log(this.data);
       let data = [
@@ -87,12 +89,12 @@ export default {
         }
       ];
       const layout = {
-        title: "Bar Plot",
+        title: "Top 5 Countries for SDG(insert the selected SDG Variable here)",
         xaxis: {
-          title: "Name"
+          title: "Counties"
         },
         yaxis: {
-          title: "Value"
+          title: "Average SDG Score"
         }
       };
       const config = {

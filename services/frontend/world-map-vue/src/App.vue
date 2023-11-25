@@ -16,14 +16,14 @@
 
 
 <script>
-//import WorldMap from "@/components/WorldMap.vue";
+import WorldMap from "@/components/WorldMap.vue";
 import StatisticsTable from "@/components/StatisticsTable.vue";
 import IconContainer from "@/components/IconContainer.vue";
 import ScoreGraph from "@/components/ScoreGraph.vue";
 
 export default {
   components: {
-    //WorldMap,
+    WorldMap,
     IconContainer,
     StatisticsTable,
     ScoreGraph
@@ -80,10 +80,5 @@ export default {
   width: 100%;
 }
 
-.score-graph {
-  position: fixed;
-  top: 0;
-  right: 1000px;
-  left: 0;
-}
+
 </style>
