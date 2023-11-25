@@ -8,11 +8,15 @@
         </tr>
 
         <tr>
-          <td>Number of research papers found in Switzerland</td>
+          <td>
+            Number of research papers found referred to {{ currentCountry }}
+          </td>
           <td>{{ numberOfPapers }}</td>
         </tr>
         <tr>
-          <td>Average SDG score for topic 1 in Switzerland</td>
+          <td>
+            Average SDG score for {{ currentTopic }} in {{ currentCountry }}
+          </td>
           <td>{{ averageSDGScore }}</td>
         </tr>
       </table>
@@ -66,6 +70,8 @@ export default {
   props: {
     numberOfPapers: Number,
     averageSDGScore: Number,
+    currentTopic: String,
+    currentCountry: String,
   },
 };
 </script>
@@ -74,15 +80,15 @@ export default {
 .statistics-table {
   position: fixed;
   bottom: 240px;
-  right: 60px;
-  margin-bottom: 30px;
+  right: 20px;
+  margin-bottom: 10px;
   width: 34%;
 }
 
 .filter-table {
   position: fixed;
   bottom: 20px;
-  right: 60px;
+  right: 20px;
   margin-top: 20px;
   width: 34%;
 }
@@ -94,9 +100,8 @@ table {
   font-size: 12px;
 }
 
-
-
-th, td {
+th,
+td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
