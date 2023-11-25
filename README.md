@@ -6,3 +6,6 @@ Updated
 - The current web page has been modified to adapt to 100% screen size (the positions of each component are fixed).
 
 - Run npm install firstly
+
+npm install leaflet
+
