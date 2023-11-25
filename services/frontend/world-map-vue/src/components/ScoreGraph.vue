@@ -47,14 +47,21 @@ export default {
     this.drawBarPlot();
   },
   watch: {
-    data: "drawBarPlot",
+    "selectedSDG.id": function (newVal, oldVal) {
+      if (newVal !== oldVal) {
+        this.fetchData();
+        this.drawBarPlot();
+      }
+    },
   },
+
   methods: {
     async fetchData() {
       try {
         const response = await axios.get("/summary_table.json");
         console.log(response.data);
         this.data = response.data;
+        this.drawBarPlot();
       } catch (error) {
         console.error("Error fetching data:", error);
 
