@@ -32,13 +32,14 @@ function getTop5Countries(data, SDG) {
 }
 
 export default {
-  data: () => ({
-    data: [],
-  }),
   props: {
     chartTitle: {
       type: String,
       default: "Bar Plot",
+    },
+    selectedSDG: {
+      type: Object,
+      default: () => ({ id: 1, name: "No Poverty" }),
     },
   },
   mounted() {
@@ -78,10 +79,9 @@ export default {
     },
     drawBarPlot() {
       //const selectedSDG = 'sdg14_avg';
-      const top5CountriesData = getTop5Countries(
-        this.data,
-        `sdg${selectedSDG.id}_avg`.plotDesc
-      );
+      const SDGKey = `sdg${this.selectedSDG.id}_avg`;
+
+      const top5CountriesData = getTop5Countries(this.data, SDGKey);
       console.log(this.data);
       let data = [
         {
@@ -93,7 +93,7 @@ export default {
         },
       ];
       const layout = {
-        title: "Top 5 Countries for SDG(insert the selected SDG Variable here)",
+        title: `Top 5 Countries for ${this.selectedSDG.name}`,
         xaxis: {
           title: "Countries ranked (descending)",
         },

@@ -26,8 +26,8 @@ export default {
   },
 
   watch: {
-    selectedSDG(sdg_new, sdg_old) {
-      if (sdg_new !== sdg_old) {
+    "selectedSDG.id": function (newId, oldId) {
+      if (newId !== oldId) {
         this.loadSDGAverages();
       }
     },
@@ -77,7 +77,7 @@ export default {
       this.loadSDGAverages();
 
       // Testing if colorCountry method works:
-      this.colorCountry("Sudan", { r: 0, g: 255, b: 0 }, 0.05);
+      // this.colorCountry("Sudan", { r: 0, g: 255, b: 0 }, 0.05);
     });
   },
   methods: {

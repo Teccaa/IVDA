@@ -15,7 +15,7 @@
     <WorldMap :selectedSDG="selectedSDG" />
 
     <StatisticsTable :documents="documents" />
-    <ScoreGraph :data="selectedSDG" />
+    <ScoreGraph :selectedSDG="selectedSDG" />
   </div>
 </template>
 
