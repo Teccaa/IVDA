@@ -19,7 +19,7 @@ function getTop5Countries(data, SDG) {
   const sortedData = Array.isArray(data) ? data.sort((a, b) => b[SDG] - a[SDG]) : [];
 
   // Slice the top 5 countries
-  const top5Countries = sortedData.slice(0, 5);
+  const top5Countries = sortedData.slice(0, 120);
   const top5CountriesWithSelectedScore = top5Countries.map(countryData => {
     return {
       country: countryData["Country"],
@@ -75,7 +75,7 @@ export default {
       }
     },
     drawBarPlot() {
-      const selectedSDG = 'sdg1_avg';
+      const selectedSDG = 'sdg14_avg';
         
       const top5CountriesData = getTop5Countries(this.data, selectedSDG);
       console.log(this.data);
@@ -91,7 +91,7 @@ export default {
       const layout = {
         title: "Top 5 Countries for SDG(insert the selected SDG Variable here)",
         xaxis: {
-          title: "Counties"
+          title: "Countries ranked (descending)"
         },
         yaxis: {
           title: "Average SDG Score"
