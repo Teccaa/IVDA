@@ -10,7 +10,7 @@
     <IconContainer :icons="icons" />
     <WorldMap :icons="icons" />
     <StatisticsTable :documents="documents" />
-    <ScoreGraph :data="chartData" :layout="chartLayout" chart-title="My Bar Chart" />
+    <ScoreGraph :data="selectedSDG"/>
   </div>
 </template>
 
@@ -39,6 +39,7 @@ export default {
         { id: 2, title: "Document 2", author: "Author 2" },
 
       ],
+      selectedSDG: 'sdg1_avg'
     };
   },
 };
