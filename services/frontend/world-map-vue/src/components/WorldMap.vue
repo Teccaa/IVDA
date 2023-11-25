@@ -15,9 +15,14 @@ export default {
   data() {
     return {
       selectedArea: "Global",
-      selectedSDG: 1,
       map: null,
     };
+  },
+  props: {
+    selectedSDG: {
+      type: Object,
+      default: () => ({ id: 1, name: "No Poverty" }),
+    },
   },
 
   watch: {
@@ -104,10 +109,10 @@ export default {
 
       try {
         console.log(
-          `Trying to fetch: '/sdg_averages/sdg${this.selectedSDG}_averages.json'`
+          `Trying to fetch: '/sdg_averages/sdg${this.selectedSDG.id}_averages.json'`
         );
         const response = await fetch(
-          `/sdg_averages/sdg${this.selectedSDG}_averages.json`
+          `/sdg_averages/sdg${this.selectedSDG.id}_averages.json`
         );
         console.log("Fetching SDG data successful!");
         const data = await response.json();

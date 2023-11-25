@@ -2,28 +2,30 @@
   <div>
     <h2></h2>
     <div ref="plotlyChart"></div>
-    
-    <div id='myDiv' style="position: fixed; top: 0; right: 0; height: 60vh;"></div>
 
-
+    <div
+      id="myDiv"
+      style="position: fixed; top: 0; right: 0; height: 60vh"
+    ></div>
   </div>
 </template>
 
-
 <script>
 import axios from "axios";
-import Plotly from 'plotly.js/dist/plotly';
+import Plotly from "plotly.js/dist/plotly";
 
 function getTop5Countries(data, SDG) {
   // Sort the data by the selected SDG
-  const sortedData = Array.isArray(data) ? data.sort((a, b) => b[SDG] - a[SDG]) : [];
+  const sortedData = Array.isArray(data)
+    ? data.sort((a, b) => b[SDG] - a[SDG])
+    : [];
 
   // Slice the top 5 countries
   const top5Countries = sortedData.slice(0, 120);
-  const top5CountriesWithSelectedScore = top5Countries.map(countryData => {
+  const top5CountriesWithSelectedScore = top5Countries.map((countryData) => {
     return {
       country: countryData["Country"],
-      SDG: countryData[SDG]
+      SDG: countryData[SDG],
     };
   });
   return top5CountriesWithSelectedScore;
@@ -36,7 +38,7 @@ export default {
   props: {
     chartTitle: {
       type: String,
-      default: 'Bar Plot',
+      default: "Bar Plot",
     },
   },
   mounted() {
@@ -44,7 +46,7 @@ export default {
     this.drawBarPlot();
   },
   watch: {
-    data: 'drawBarPlot',
+    data: "drawBarPlot",
   },
   methods: {
     async fetchData() {
@@ -75,36 +77,35 @@ export default {
       }
     },
     drawBarPlot() {
-      const selectedSDG = 'sdg14_avg';
-        
-      const top5CountriesData = getTop5Countries(this.data, selectedSDG);
+      //const selectedSDG = 'sdg14_avg';
+      const top5CountriesData = getTop5Countries(
+        this.data,
+        `sdg${selectedSDG.id}_avg`.plotDesc
+      );
       console.log(this.data);
       let data = [
         {
           //x: countries,
           //y: scores,
-          x: top5CountriesData.map(countryData => countryData.country),
-          y: top5CountriesData.map(countryData => countryData.SDG),
-          type: 'bar'
-        }
+          x: top5CountriesData.map((countryData) => countryData.country),
+          y: top5CountriesData.map((countryData) => countryData.SDG),
+          type: "bar",
+        },
       ];
       const layout = {
         title: "Top 5 Countries for SDG(insert the selected SDG Variable here)",
         xaxis: {
-          title: "Countries ranked (descending)"
+          title: "Countries ranked (descending)",
         },
         yaxis: {
-          title: "Average SDG Score"
-        }
+          title: "Average SDG Score",
+        },
       };
       const config = {
         responsive: true,
       };
       Plotly.newPlot("myDiv", data, layout, config);
-    }
-
-  }
+    },
+  },
 };
-
-
 </script>

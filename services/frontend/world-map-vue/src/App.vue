@@ -1,5 +1,3 @@
-<!-- App.vue -->
-
 <template>
   <div id="app">
     <div class="search-box">
@@ -7,13 +5,19 @@
       <input type="text" placeholder="Search for documents with keywords" />
       <i class="fas fa-question-circle"></i>
     </div>
-    <IconContainer :icons="icons" />
-    <WorldMap :icons="icons" />
+
+    <IconContainer
+      :icons="icons"
+      @SDG-icon-id="handleSDGIconId"
+      @SDG-icon-name="handleSDGIconName"
+    />
+
+    <WorldMap :selectedSDG="selectedSDG" />
+
     <StatisticsTable :documents="documents" />
-    <ScoreGraph :data="selectedSDG"/>
+    <ScoreGraph :data="selectedSDG" />
   </div>
 </template>
-
 
 <script>
 import WorldMap from "@/components/WorldMap.vue";
@@ -26,7 +30,7 @@ export default {
     WorldMap,
     IconContainer,
     StatisticsTable,
-    ScoreGraph
+    ScoreGraph,
   },
   data() {
     return {
@@ -37,10 +41,22 @@ export default {
       documents: [
         { id: 1, title: "Document 1", author: "Author 1" },
         { id: 2, title: "Document 2", author: "Author 2" },
-
       ],
-      selectedSDG: 'sdg1_avg'
+      selectedSDG: {
+        id: 1,
+        name: "No Poverty",
+      },
     };
+  },
+  methods: {
+    handleSDGIconId(sdg_id) {
+      this.selectedSDG.id = sdg_id;
+      // console.log(`Updated selected SDG-ID: ${this.selectedSDG.id}.`);
+    },
+    handleSDGIconName(sdg_name) {
+      this.selectedSDG.name = sdg_name;
+      // console.log(`Updated SDG-name: ${this.selectedSDG.name}.`);
+    },
   },
 };
 </script>
@@ -79,6 +95,4 @@ export default {
   bottom: 0;
   width: 100%;
 }
-
-
 </style>

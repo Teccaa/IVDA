@@ -1,6 +1,11 @@
 <template>
   <div class="icon-container">
-    <div v-for="icon in icons" :key="icon.id" class="icon-item">
+    <div
+      v-for="icon in icons"
+      :key="icon.id"
+      @click="handleIconClick(icon)"
+      class="icon-item"
+    >
       <img :src="icon.path" alt="icon" />
     </div>
   </div>
@@ -10,6 +15,37 @@
 export default {
   props: {
     icons: Array,
+  },
+  methods: {
+    handleIconClick(icon) {
+      console.log(icon.id);
+      console.log(this.getTopicName(icon.id));
+      // SDG-icon-id and SDG-icon-name are emitted after clicking an icon:
+      this.$emit("SDG-icon-id", icon.id);
+      this.$emit("SDG-icon-name", this.getTopicName(icon.id));
+    },
+    getTopicName(iconId) {
+      const topicMapping = {
+        1: "No Poverty",
+        2: "Zero Hunger",
+        3: "Good Health and Well-Being",
+        4: "Quality Education",
+        5: "Gender Equality",
+        6: "Clean Water and Sanitation",
+        7: "Affordable and Clean Energy",
+        8: "Decent Work and Economic Growth",
+        9: "Industry, Innovation and Infrastructure",
+        10: "Reduced Inequalities",
+        11: "Sustainable Cities and Communities",
+        12: "Responsible Consumption and Production",
+        13: "Climate Action",
+        14: "Life Below Water",
+        15: "Life on Land",
+        16: "Peace, Justice and Strong Institutions",
+        17: "Partnerships for the Goals",
+      };
+      return topicMapping[iconId] || "";
+    },
   },
 };
 </script>
