@@ -18,7 +18,7 @@
       </table>
     </div>
 
-    <div class="filter-table">
+    <!--<div class="filter-table">
       <h2>Filter Results</h2>
       <table>
         <tr>
@@ -57,8 +57,8 @@
           <td>0.78</td>
         </tr>
       </table>
-    </div>
-  </div>
+    </div>-->
+  </div> 
 </template>
 
 <script>
@@ -66,8 +66,11 @@ export default {
   props: {
     numberOfPapers: Number,
     averageSDGScore: Number,
-    selectedArea: String,
     selectedSDG: String,
+    selectedArea: {
+      type: String,
+      default: 'Global',
+    },
   },
 };
 </script>
@@ -75,7 +78,7 @@ export default {
 <style scoped>
 .statistics-table {
   position: fixed;
-  bottom: 240px;
+  bottom: 200px;
   right: 60px;
   margin-bottom: 30px;
   width: 34%;
