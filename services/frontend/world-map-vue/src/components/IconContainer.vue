@@ -53,20 +53,29 @@ export default {
 <style scoped>
 .icon-container {
   display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
   overflow-x: auto;
+  max-width: 925px; 
   padding: 10px;
 }
 
 .icon-item {
-  margin-right: 0px;
+  flex-basis: calc(12% - 20px);
+  margin-right: 5px;
+  margin-bottom: 10px;
 }
 
 .icon-item:last-child {
   margin-right: 0;
 }
+.icon-item:not(:last-child) {
+  margin-right: 10px;
+}
 
 .icon-item img {
-  width: 60px;
-  height: 40px;
+  width: 70px;
+  height: 50px;
 }
+
 </style>

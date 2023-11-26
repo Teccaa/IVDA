@@ -5,6 +5,13 @@
       <input type="text" placeholder="Search for documents with keywords" />
       <i class="fas fa-question-circle"></i>
     </div>
+    <div class="dropdown">
+  <label for="nrOfCountries">Number of Countries: </label>
+  <select id="nrOfCountries" v-model="NrOfCountries.selectedValue">
+    <option v-for="value in NrOfCountries.values" :key="value">{{ value }}</option>
+  </select>
+</div>
+
 
     <IconContainer
       :icons="icons"
@@ -15,7 +22,8 @@
     <WorldMap :selectedSDG="selectedSDG" />
 
     <StatisticsTable :documents="documents" />
-    <ScoreGraph :selectedSDG="selectedSDG" />
+
+    <ScoreGraph :selectedSDG="selectedSDG" :selectedValue="Number(NrOfCountries.selectedValue)"/>
   </div>
 </template>
 
@@ -33,7 +41,12 @@ export default {
     ScoreGraph,
   },
   data() {
-    return {
+    
+      return {
+        NrOfCountries: {
+          values: [5, 10, 20, 50, 100],
+          selectedValue: 5
+        },
       icons: Array.from({ length: 17 }, (_, i) => ({
         id: i + 1,
         path: require(`@/assets/icons/icon${i + 1}.png`),
@@ -88,6 +101,20 @@ export default {
   box-sizing: border-box;
   border: none;
   border-radius: 5px;
+  z-index: 1000; 
+}
+.dropdown {
+  position: fixed;
+  top: 60px; 
+  right: 50px; 
+  z-index: 1000; 
+}
+.dropdown label {
+  margin-right: 5px;
+}
+
+.dropdown select {
+  padding: 5px;
 }
 
 .icon-container {

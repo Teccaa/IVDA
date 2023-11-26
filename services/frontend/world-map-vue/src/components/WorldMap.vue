@@ -140,7 +140,7 @@ export default {
 <style scoped>
 #world-map {
   position: fixed;
-  top: 50px;
+  top: 60px;
   left: 10px;
   height: 600px;
   width: 925px;
@@ -149,7 +149,7 @@ export default {
 
 #selected-area {
   position: fixed;
-  top: 10px;
+  top: 20px;
   left: 10px;
 }
 </style>

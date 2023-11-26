@@ -14,14 +14,14 @@
 import axios from "axios";
 import Plotly from "plotly.js/dist/plotly";
 
-function getTop5Countries(data, SDG) {
+function getTop5Countries(data, SDG, selectedValue) {
   // Sort the data by the selected SDG
   const sortedData = Array.isArray(data)
     ? data.sort((a, b) => b[SDG] - a[SDG])
     : [];
 
   // Slice the top 5 countries
-  const top5Countries = sortedData.slice(0, 120);
+  const top5Countries = sortedData.slice(0, selectedValue);
   const top5CountriesWithSelectedScore = top5Countries.map((countryData) => {
     return {
       country: countryData["Country"],
@@ -41,6 +41,7 @@ export default {
       type: Object,
       default: () => ({ id: 1, name: "No Poverty" }),
     },
+    selectedValue: Number,
   },
   mounted() {
     this.fetchData();
@@ -53,7 +54,11 @@ export default {
         this.drawBarPlot();
       }
     },
+    selectedValue(newValue) {
+      console.log("selectedValue changed:", newValue);
+      this.drawBarPlot();
   },
+},
 
   methods: {
     async fetchData() {
@@ -85,10 +90,13 @@ export default {
       }
     },
     drawBarPlot() {
+      console.log("drawBarPlot called");
+      console.log("selectedValue:", this.selectedValue);
+      console.log("selectedSDG:", this.selectedSDG);
       //const selectedSDG = 'sdg14_avg';
       const SDGKey = `sdg${this.selectedSDG.id}_avg`;
 
-      const top5CountriesData = getTop5Countries(this.data, SDGKey);
+      const top5CountriesData = getTop5Countries(this.data, SDGKey, this.selectedValue);
       console.log(this.data);
       let data = [
         {
@@ -100,9 +108,9 @@ export default {
         },
       ];
       const layout = {
-        title: `Top 5 Countries for ${this.selectedSDG.name}`,
+        title: `Top ${this.selectedValue} Countries for ${this.selectedSDG.name}`,
         xaxis: {
-          title: "Countries ranked (descending)",
+          title: "",
         },
         yaxis: {
           title: "Average SDG Score",
