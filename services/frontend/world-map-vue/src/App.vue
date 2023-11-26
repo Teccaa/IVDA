@@ -19,9 +19,9 @@
       @SDG-icon-name="handleSDGIconName"
     />
 
-    <WorldMap :selectedSDG="selectedSDG" />
+    <WorldMap :selectedSDG="selectedSDG" @area-selected="handleAreaSelected"/>
 
-    <StatisticsTable :documents="documents" />
+    <StatisticsTable :documents="documents" :selectedSDG="selectedSDG" :selectedArea="selectedArea" />
 
     <ScoreGraph :selectedSDG="selectedSDG" :selectedValue="Number(NrOfCountries.selectedValue)"/>
   </div>
@@ -59,6 +59,9 @@ export default {
         id: 1,
         name: "No Poverty",
       },
+      selectedArea: {
+
+      }
     };
   },
   methods: {
@@ -69,6 +72,9 @@ export default {
     handleSDGIconName(sdg_name) {
       this.selectedSDG.name = sdg_name;
       // console.log(`Updated SDG-name: ${this.selectedSDG.name}.`);
+    },
+    handleAreaSelected(selectedArea) {
+      this.selectedArea = selectedArea;
     },
   },
 };

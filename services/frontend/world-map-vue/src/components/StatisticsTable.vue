@@ -8,11 +8,11 @@
         </tr>
 
         <tr>
-          <td>Number of research papers found in Switzerland</td>
+          <td>Number of research papers found in {{ selectedArea }}</td>
           <td>{{ numberOfPapers }}</td>
         </tr>
         <tr>
-          <td>Average SDG score for topic 1 in Switzerland</td>
+          <td>Average SDG score for topic {{ selectedSDG.id }} in {{ selectedArea }}</td>
           <td>{{ averageSDGScore }}</td>
         </tr>
       </table>
@@ -66,6 +66,8 @@ export default {
   props: {
     numberOfPapers: Number,
     averageSDGScore: Number,
+    selectedArea: String,
+    selectedSDG: String,
   },
 };
 </script>
