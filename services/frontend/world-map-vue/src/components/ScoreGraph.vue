@@ -13,6 +13,7 @@
 <script>
 import axios from "axios";
 import Plotly from "plotly.js/dist/plotly";
+//import IconContainer from "./IconContainer.vue";
 
 function getTop5Countries(data, SDG) {
   // Sort the data by the selected SDG
@@ -59,6 +60,8 @@ export default {
     async fetchData() {
       try {
         const response = await axios.get("/summary_table.json");
+        console.log("Selected SDG changed!");
+        console.log(this.selectedSDG.id);
         console.log(response.data);
         this.data = response.data;
         this.drawBarPlot();
@@ -84,10 +87,37 @@ export default {
         }
       }
     },
+
+    getSDGColor(selectedSDGid) {
+      const sdgColorMapping = {
+        1: [229, 35, 59],
+        2: [221, 168, 57],
+        3: [76, 160, 56],
+        4: [197, 26, 45],
+        5: [255, 58, 34],
+        6: [39, 189, 226],
+        7: [252, 195, 8],
+        8: [161, 25, 64],
+        9: [252, 105, 36],
+        10: [221, 20, 103],
+        11: [252, 154, 36],
+        12: [191, 139, 47],
+        13: [62, 126, 68],
+        14: [10, 151, 217],
+        15: [86, 192, 43],
+        16: [3, 104, 157],
+        17: [25, 72, 106],
+      };
+      return sdgColorMapping[selectedSDGid] || "";
+    },
+
     drawBarPlot() {
       //const selectedSDG = 'sdg14_avg';
       const SDGKey = `sdg${this.selectedSDG.id}_avg`;
+      let color = this.getSDGColor(this.selectedSDG.id);
+      let cssColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
 
+      // console.log(color);
       const top5CountriesData = getTop5Countries(this.data, SDGKey);
       console.log(this.data);
       let data = [
@@ -97,6 +127,9 @@ export default {
           x: top5CountriesData.map((countryData) => countryData.country),
           y: top5CountriesData.map((countryData) => countryData.SDG),
           type: "bar",
+          marker: {
+            color: cssColor,
+          },
         },
       ];
       const layout = {

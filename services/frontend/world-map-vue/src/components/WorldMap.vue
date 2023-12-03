@@ -122,15 +122,44 @@ export default {
       }
     },
 
+    getSDGColor(selectedSDGid) {
+      const sdgColorMapping = {
+        1: [229, 35, 59],
+        2: [221, 168, 57],
+        3: [76, 160, 56],
+        4: [197, 26, 45],
+        5: [255, 58, 34],
+        6: [39, 189, 226],
+        7: [252, 195, 8],
+        8: [161, 25, 64],
+        9: [252, 105, 36],
+        10: [221, 20, 103],
+        11: [252, 154, 36],
+        12: [191, 139, 47],
+        13: [62, 126, 68],
+        14: [10, 151, 217],
+        15: [86, 192, 43],
+        16: [3, 104, 157],
+        17: [25, 72, 106],
+      };
+      return sdgColorMapping[selectedSDGid] || "";
+    },
+
     colorCountriesBasedOnSDG(sdgData) {
       console.log("Induce colorization process of areas ...");
+      let color = this.getSDGColor(this.selectedSDG.id);
+      console.log(color);
       sdgData.forEach((region) => {
         const countryName = region["Geographical Region"];
-        console.log(`Area: ${countryName}`);
+        //console.log(`Area: ${countryName}`);
         const sdgAverage = region["SDG Average"];
-        console.log(`SDG Average: ${sdgAverage}`);
-        this.colorCountry(countryName, { r: 0, g: 255, b: 0 }, sdgAverage);
-        console.log("Coloring successful!");
+        //console.log(`SDG Average: ${sdgAverage}`);
+        this.colorCountry(
+          countryName,
+          { r: color[0], g: color[1], b: color[2] },
+          sdgAverage
+        );
+        //console.log("Coloring successful!");
       });
     },
   },
