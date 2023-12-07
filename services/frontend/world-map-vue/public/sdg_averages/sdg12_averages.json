@@ -1,0 +1,666 @@
+[
+    {
+        "Geographical Region":"Global",
+        "SDG Average":0.3000069574
+    },
+    {
+        "Geographical Region":"Zimbabwe",
+        "SDG Average":0.4340677562
+    },
+    {
+        "Geographical Region":"Philippines",
+        "SDG Average":0.089637325
+    },
+    {
+        "Geographical Region":"Belgium",
+        "SDG Average":0.1816594063
+    },
+    {
+        "Geographical Region":"Mozambique",
+        "SDG Average":0.0128912174
+    },
+    {
+        "Geographical Region":"Egypt",
+        "SDG Average":0.2574535899
+    },
+    {
+        "Geographical Region":"Russia",
+        "SDG Average":0.2058347252
+    },
+    {
+        "Geographical Region":"Brazil",
+        "SDG Average":0.1592384845
+    },
+    {
+        "Geographical Region":"Nepal",
+        "SDG Average":0.4223462369
+    },
+    {
+        "Geographical Region":"Bulgaria",
+        "SDG Average":0.1075611636
+    },
+    {
+        "Geographical Region":"Kosovo",
+        "SDG Average":0.2766799228
+    },
+    {
+        "Geographical Region":"Denmark",
+        "SDG Average":0.1821831717
+    },
+    {
+        "Geographical Region":"Greece",
+        "SDG Average":0.2491109294
+    },
+    {
+        "Geographical Region":"Cyprus",
+        "SDG Average":0.1850183598
+    },
+    {
+        "Geographical Region":"Guyana",
+        "SDG Average":0.0903342739
+    },
+    {
+        "Geographical Region":"Botswana",
+        "SDG Average":0.3895176686
+    },
+    {
+        "Geographical Region":"Switzerland",
+        "SDG Average":0.2284073275
+    },
+    {
+        "Geographical Region":"Togo",
+        "SDG Average":0.004179264
+    },
+    {
+        "Geographical Region":"Ireland",
+        "SDG Average":0.2398365665
+    },
+    {
+        "Geographical Region":"Slovenia",
+        "SDG Average":0.183513726
+    },
+    {
+        "Geographical Region":"Zambia",
+        "SDG Average":0.3949254728
+    },
+    {
+        "Geographical Region":"Norway",
+        "SDG Average":0.2300887334
+    },
+    {
+        "Geographical Region":"Fiji",
+        "SDG Average":0.0788704483
+    },
+    {
+        "Geographical Region":"Greenland",
+        "SDG Average":0.0553189976
+    },
+    {
+        "Geographical Region":"Samoa",
+        "SDG Average":0.0119599542
+    },
+    {
+        "Geographical Region":"Taiwan",
+        "SDG Average":0.6886297464
+    },
+    {
+        "Geographical Region":"Mongolia",
+        "SDG Average":0.2790909664
+    },
+    {
+        "Geographical Region":"Azerbaijan",
+        "SDG Average":0.0070377192
+    },
+    {
+        "Geographical Region":"Somalia",
+        "SDG Average":0.0852463311
+    },
+    {
+        "Geographical Region":"United Kingdom",
+        "SDG Average":0.2659879521
+    },
+    {
+        "Geographical Region":"Italy",
+        "SDG Average":0.2374865351
+    },
+    {
+        "Geographical Region":"Mauritania",
+        "SDG Average":0.0070377192
+    },
+    {
+        "Geographical Region":"United States",
+        "SDG Average":0.2177251968
+    },
+    {
+        "Geographical Region":"Mexico",
+        "SDG Average":0.2560486816
+    },
+    {
+        "Geographical Region":"Niger",
+        "SDG Average":0.3865239148
+    },
+    {
+        "Geographical Region":"Cambodia",
+        "SDG Average":0.3445777874
+    },
+    {
+        "Geographical Region":"Saudi Arabia",
+        "SDG Average":0.1277595827
+    },
+    {
+        "Geographical Region":"Jamaica",
+        "SDG Average":0.2993711834
+    },
+    {
+        "Geographical Region":"Uganda",
+        "SDG Average":0.2741889516
+    },
+    {
+        "Geographical Region":"Lithuania",
+        "SDG Average":0.2916749193
+    },
+    {
+        "Geographical Region":"Lesotho",
+        "SDG Average":0.0133706704
+    },
+    {
+        "Geographical Region":"Uruguay",
+        "SDG Average":0.0747600044
+    },
+    {
+        "Geographical Region":"Kyrgyzstan",
+        "SDG Average":0.2864346925
+    },
+    {
+        "Geographical Region":"Belarus",
+        "SDG Average":0.2612669211
+    },
+    {
+        "Geographical Region":"Japan",
+        "SDG Average":0.2189788237
+    },
+    {
+        "Geographical Region":"Tunisia",
+        "SDG Average":0.1951720065
+    },
+    {
+        "Geographical Region":"Hong Kong",
+        "SDG Average":0.2064866946
+    },
+    {
+        "Geographical Region":"Guatemala",
+        "SDG Average":0.2617885848
+    },
+    {
+        "Geographical Region":"Cameroon",
+        "SDG Average":0.1902553077
+    },
+    {
+        "Geographical Region":"Ecuador",
+        "SDG Average":0.1948434016
+    },
+    {
+        "Geographical Region":"Malawi",
+        "SDG Average":0.0044535846
+    },
+    {
+        "Geographical Region":"Madagascar",
+        "SDG Average":0.2118261889
+    },
+    {
+        "Geographical Region":"Kuwait",
+        "SDG Average":0.003961136
+    },
+    {
+        "Geographical Region":"French Polynesia",
+        "SDG Average":0.4631614313
+    },
+    {
+        "Geographical Region":"Sri Lanka",
+        "SDG Average":0.1282077636
+    },
+    {
+        "Geographical Region":"Peru",
+        "SDG Average":0.2452392853
+    },
+    {
+        "Geographical Region":"Suriname",
+        "SDG Average":0.0326666832
+    },
+    {
+        "Geographical Region":"Yemen",
+        "SDG Average":0.4084736385
+    },
+    {
+        "Geographical Region":"Chile",
+        "SDG Average":0.1813248339
+    },
+    {
+        "Geographical Region":"Qatar",
+        "SDG Average":0.4335294627
+    },
+    {
+        "Geographical Region":"South Africa",
+        "SDG Average":0.3644166017
+    },
+    {
+        "Geographical Region":"Sudan",
+        "SDG Average":0.404388019
+    },
+    {
+        "Geographical Region":"Bangladesh",
+        "SDG Average":0.3089778439
+    },
+    {
+        "Geographical Region":"Ukraine",
+        "SDG Average":0.246410571
+    },
+    {
+        "Geographical Region":"Vietnam",
+        "SDG Average":0.4054236047
+    },
+    {
+        "Geographical Region":"Tonga",
+        "SDG Average":0.041780781
+    },
+    {
+        "Geographical Region":"Luxembourg",
+        "SDG Average":0.2112419237
+    },
+    {
+        "Geographical Region":"Indonesia",
+        "SDG Average":0.4071741026
+    },
+    {
+        "Geographical Region":"Laos",
+        "SDG Average":0.4117686152
+    },
+    {
+        "Geographical Region":"Angola",
+        "SDG Average":0.0126442786
+    },
+    {
+        "Geographical Region":"Georgia",
+        "SDG Average":0.0786713486
+    },
+    {
+        "Geographical Region":"Cape Verde",
+        "SDG Average":0.0776754916
+    },
+    {
+        "Geographical Region":"Benin",
+        "SDG Average":0.0058141961
+    },
+    {
+        "Geographical Region":"Palestine",
+        "SDG Average":0.0984417368
+    },
+    {
+        "Geographical Region":"Ghana",
+        "SDG Average":0.0327560541
+    },
+    {
+        "Geographical Region":"Guinea",
+        "SDG Average":0.0617513594
+    },
+    {
+        "Geographical Region":"Armenia",
+        "SDG Average":0.0563360564
+    },
+    {
+        "Geographical Region":"Iraq",
+        "SDG Average":0.0732945098
+    },
+    {
+        "Geographical Region":"Kazakhstan",
+        "SDG Average":0.163123675
+    },
+    {
+        "Geographical Region":"Mauritius",
+        "SDG Average":0.3554298487
+    },
+    {
+        "Geographical Region":"Ethiopia",
+        "SDG Average":0.3207069838
+    },
+    {
+        "Geographical Region":"Liechtenstein",
+        "SDG Average":0.4599835885
+    },
+    {
+        "Geographical Region":"Sierra Leone",
+        "SDG Average":0.0602516454
+    },
+    {
+        "Geographical Region":"Lebanon",
+        "SDG Average":0.1752154976
+    },
+    {
+        "Geographical Region":"Bolivia",
+        "SDG Average":0.281182114
+    },
+    {
+        "Geographical Region":"Papua New Guinea",
+        "SDG Average":0.0087525374
+    },
+    {
+        "Geographical Region":"Cook Islands",
+        "SDG Average":0.1353446692
+    },
+    {
+        "Geographical Region":"Venezuela",
+        "SDG Average":0.1363541301
+    },
+    {
+        "Geographical Region":"Puerto Rico",
+        "SDG Average":0.131839931
+    },
+    {
+        "Geographical Region":"North Korea",
+        "SDG Average":0.4117610827
+    },
+    {
+        "Geographical Region":"Mali",
+        "SDG Average":0.289724859
+    },
+    {
+        "Geographical Region":"United States of America",
+        "SDG Average":0.1897082115
+    },
+    {
+        "Geographical Region":"India",
+        "SDG Average":0.2329803341
+    },
+    {
+        "Geographical Region":"Germany",
+        "SDG Average":0.2073834095
+    },
+    {
+        "Geographical Region":"Netherlands",
+        "SDG Average":0.2047022158
+    },
+    {
+        "Geographical Region":"People's Republic of China",
+        "SDG Average":0.2344032511
+    },
+    {
+        "Geographical Region":"Haiti",
+        "SDG Average":0.7321029902
+    },
+    {
+        "Geographical Region":"Morocco",
+        "SDG Average":0.2539600866
+    },
+    {
+        "Geographical Region":"France",
+        "SDG Average":0.1417927809
+    },
+    {
+        "Geographical Region":"Tajikistan",
+        "SDG Average":0.0484272841
+    },
+    {
+        "Geographical Region":"Australia",
+        "SDG Average":0.2984543933
+    },
+    {
+        "Geographical Region":"Gabon",
+        "SDG Average":0.0070377192
+    },
+    {
+        "Geographical Region":"Albania",
+        "SDG Average":0.2351377394
+    },
+    {
+        "Geographical Region":"Romania",
+        "SDG Average":0.0769204112
+    },
+    {
+        "Geographical Region":"Antarctica",
+        "SDG Average":0.1088410143
+    },
+    {
+        "Geographical Region":"Austria",
+        "SDG Average":0.1707445283
+    },
+    {
+        "Geographical Region":"Rwanda",
+        "SDG Average":0.4938671291
+    },
+    {
+        "Geographical Region":"Latvia",
+        "SDG Average":0.0056318883
+    },
+    {
+        "Geographical Region":"New Caledonia",
+        "SDG Average":0.4382117996
+    },
+    {
+        "Geographical Region":"New Zealand",
+        "SDG Average":0.3344871592
+    },
+    {
+        "Geographical Region":"Slovakia",
+        "SDG Average":0.0468108798
+    },
+    {
+        "Geographical Region":"Tanzania",
+        "SDG Average":0.2156582233
+    },
+    {
+        "Geographical Region":"Thailand",
+        "SDG Average":0.2219405846
+    },
+    {
+        "Geographical Region":"Republic of the Congo",
+        "SDG Average":0.2353936297
+    },
+    {
+        "Geographical Region":"Colombia",
+        "SDG Average":0.3198540628
+    },
+    {
+        "Geographical Region":"The Gambia",
+        "SDG Average":0.0867583544
+    },
+    {
+        "Geographical Region":"Turkey",
+        "SDG Average":0.2340433301
+    },
+    {
+        "Geographical Region":"Paraguay",
+        "SDG Average":0.4944341406
+    },
+    {
+        "Geographical Region":"Equatorial Guinea",
+        "SDG Average":0.0070377192
+    },
+    {
+        "Geographical Region":"Seychelles",
+        "SDG Average":0.139650702
+    },
+    {
+        "Geographical Region":"Malta",
+        "SDG Average":0.1280941735
+    },
+    {
+        "Geographical Region":"Canada",
+        "SDG Average":0.182350923
+    },
+    {
+        "Geographical Region":"Gibraltar",
+        "SDG Average":0.011007159
+    },
+    {
+        "Geographical Region":"Serbia",
+        "SDG Average":0.2207289012
+    },
+    {
+        "Geographical Region":"Uzbekistan",
+        "SDG Average":0.0794755816
+    },
+    {
+        "Geographical Region":"Costa Rica",
+        "SDG Average":0.0647270406
+    },
+    {
+        "Geographical Region":"Singapore",
+        "SDG Average":0.1077295483
+    },
+    {
+        "Geographical Region":"Honduras",
+        "SDG Average":0.25517849
+    },
+    {
+        "Geographical Region":"Malaysia",
+        "SDG Average":0.4416603422
+    },
+    {
+        "Geographical Region":"Dominican Republic",
+        "SDG Average":0.3707789485
+    },
+    {
+        "Geographical Region":"Portugal",
+        "SDG Average":0.2540351744
+    },
+    {
+        "Geographical Region":"Spain",
+        "SDG Average":0.1480326501
+    },
+    {
+        "Geographical Region":"Iceland",
+        "SDG Average":0.3859613237
+    },
+    {
+        "Geographical Region":"Israel",
+        "SDG Average":0.1483863388
+    },
+    {
+        "Geographical Region":"South Sudan",
+        "SDG Average":0.2957107127
+    },
+    {
+        "Geographical Region":"Oman",
+        "SDG Average":0.1058985981
+    },
+    {
+        "Geographical Region":"Iran",
+        "SDG Average":0.3385369228
+    },
+    {
+        "Geographical Region":"Czech Republic",
+        "SDG Average":0.1201598052
+    },
+    {
+        "Geographical Region":"Falkland Islands",
+        "SDG Average":0.0130406599
+    },
+    {
+        "Geographical Region":"Bermuda",
+        "SDG Average":0.0146594597
+    },
+    {
+        "Geographical Region":"Panama",
+        "SDG Average":0.1464342556
+    },
+    {
+        "Geographical Region":"Hungary",
+        "SDG Average":0.2598575075
+    },
+    {
+        "Geographical Region":"Croatia",
+        "SDG Average":0.3488326564
+    },
+    {
+        "Geographical Region":"Cuba",
+        "SDG Average":0.258700391
+    },
+    {
+        "Geographical Region":"Myanmar",
+        "SDG Average":0.1708159111
+    },
+    {
+        "Geographical Region":"Senegal",
+        "SDG Average":0.4034013487
+    },
+    {
+        "Geographical Region":"Syria",
+        "SDG Average":0.3924085764
+    },
+    {
+        "Geographical Region":"Moldova",
+        "SDG Average":0.0047569328
+    },
+    {
+        "Geographical Region":"Algeria",
+        "SDG Average":0.395006093
+    },
+    {
+        "Geographical Region":"Estonia",
+        "SDG Average":0.2265723916
+    },
+    {
+        "Geographical Region":"Eritrea",
+        "SDG Average":0.0055322363
+    },
+    {
+        "Geographical Region":"Namibia",
+        "SDG Average":0.4776388598
+    },
+    {
+        "Geographical Region":"Vanuatu",
+        "SDG Average":0.2458607107
+    },
+    {
+        "Geographical Region":"Kenya",
+        "SDG Average":0.3388391615
+    },
+    {
+        "Geographical Region":"Poland",
+        "SDG Average":0.3213713362
+    },
+    {
+        "Geographical Region":"Guam",
+        "SDG Average":0.1646414399
+    },
+    {
+        "Geographical Region":"Sweden",
+        "SDG Average":0.2774871299
+    },
+    {
+        "Geographical Region":"Afghanistan",
+        "SDG Average":0.2172335878
+    },
+    {
+        "Geographical Region":"Finland",
+        "SDG Average":0.1322035429
+    },
+    {
+        "Geographical Region":"Dominica",
+        "SDG Average":0.3707789485
+    },
+    {
+        "Geographical Region":"Jersey",
+        "SDG Average":0.735034883
+    },
+    {
+        "Geographical Region":"Pakistan",
+        "SDG Average":0.2379448398
+    },
+    {
+        "Geographical Region":"South Korea",
+        "SDG Average":0.3083989533
+    },
+    {
+        "Geographical Region":"Nicaragua",
+        "SDG Average":0.0094982469
+    },
+    {
+        "Geographical Region":"Argentina",
+        "SDG Average":0.1441873841
+    },
+    {
+        "Geographical Region":"United Arab Emirates",
+        "SDG Average":0.1606119424
+    }
+]
