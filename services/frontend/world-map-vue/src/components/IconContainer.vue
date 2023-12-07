@@ -4,6 +4,7 @@
       v-for="icon in icons"
       :key="icon.id"
       @click="handleIconClick(icon)"
+      :class="{ 'selected-icon': icon.id === selectedIconId }"
       class="icon-item"
     >
       <img :src="icon.path" alt="icon" />
@@ -16,6 +17,12 @@ export default {
   props: {
     icons: Array,
   },
+  data() {
+    return {
+      selectedIconId: 1,
+    };
+  },
+
   methods: {
     handleIconClick(icon) {
       console.log(icon.id);
@@ -23,6 +30,9 @@ export default {
       // SDG-icon-id and SDG-icon-name are emitted after clicking an icon:
       this.$emit("SDG-icon-id", icon.id);
       this.$emit("SDG-icon-name", this.getTopicName(icon.id));
+
+      // Set the selectedIconId to the clicked icon id
+      this.selectedIconId = icon.id;
     },
     getTopicName(iconId) {
       const topicMapping = {
@@ -63,7 +73,10 @@ export default {
 .icon-item {
   flex-basis: calc(12% - 20px);
   margin-right: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  position: relative;
+  cursor: pointer; 
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .icon-item:last-child {
@@ -78,4 +91,22 @@ export default {
   height: 50px;
 }
 
+.selected-icon::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 19px;
+  bottom: 3px;
+  border: 3px solid #333; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  pointer-events: none; 
+}
+
+.selected-icon {
+  position: relative;
+  z-index: 1;
+  transform: scale(1.15);
+}
 </style>

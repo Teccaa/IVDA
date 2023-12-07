@@ -5,7 +5,7 @@
 
     <div
       id="myDiv"
-      style="position: fixed; top: 0; right: 0; height: 60vh"
+      style="position: fixed; top: 40px; right: 5px; height: 60vh"
     ></div>
   </div>
 </template>

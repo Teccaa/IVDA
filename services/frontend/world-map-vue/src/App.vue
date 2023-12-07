@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <div class="search-box">
-      <i class="fas fa-search"></i>
-      <input type="text" placeholder="Search for documents with keywords" />
-      <i class="fas fa-question-circle"></i>
+    <div class="banner">
+      <img src="@/assets/SDG_Goals.png" alt="SDG Goals Image" />  
     </div>
     <div class="dropdown">
   <label for="nrOfCountries">Number of Countries: </label>
@@ -85,33 +83,28 @@ export default {
   position: relative;
 }
 
-.search-box {
-  position: fixed;
+.banner {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  height: 45px; /* Adjust the height as needed */
+  background-color: #ccc; /* Adjust the color as needed */
+  z-index: 1000;
   display: flex;
   align-items: center;
-}
-
-.search-box i {
-  margin: 0 10px;
-}
-
-.search-box input {
-  flex: 1;
-  padding: 8px;
+  justify-content: center;
+  border: 1.5px solid #666;
   box-sizing: border-box;
-  border: none;
-  border-radius: 5px;
-  z-index: 1000; 
+}
+
+.banner img {
+  max-width: 21%;
+  z-index: 2000;
 }
 .dropdown {
   position: fixed;
-  top: 60px; 
+  top: 100px; 
   right: 50px; 
   z-index: 1000; 
 }
@@ -128,4 +121,5 @@ export default {
   bottom: 0;
   width: 100%;
 }
+
 </style>
