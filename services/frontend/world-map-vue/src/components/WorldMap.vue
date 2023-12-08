@@ -118,7 +118,7 @@ export default {
         const response = await fetch(
           `/sdg_averages/sdg${this.selectedSDG.id}_averages.json`
         );
-        console.log("Fetching SDG data successful!");
+        //console.log("Fetching SDG data successful!");
         const data = await response.json();
         this.colorCountriesBasedOnSDG(data);
       } catch (error) {
@@ -127,14 +127,14 @@ export default {
     },
 
     colorCountriesBasedOnSDG(sdgData) {
-      console.log("Induce colorization process of areas ...");
+      //console.log("Induce colorization process of areas ...");
       sdgData.forEach((region) => {
         const countryName = region["Geographical Region"];
-        console.log(`Area: ${countryName}`);
+        //console.log(`Area: ${countryName}`);
         const sdgAverage = region["SDG Average"];
-        console.log(`SDG Average: ${sdgAverage}`);
+        //console.log(`SDG Average: ${sdgAverage}`);
         this.colorCountry(countryName, { r: 0, g: 255, b: 0 }, sdgAverage);
-        console.log("Coloring successful!");
+        //console.log("Coloring successful!");
       });
     },
   },
@@ -145,23 +145,23 @@ export default {
 #world-map {
   position: fixed;
   top: 130px;
-  left: 8px;
-  height: 600px;
-  width: 925px;
+  left: 10px;
+  height: 630px;
+  width: 1000px;
 }
 
 .map-title {
   position: fixed;
   top: 55px;
   left: 360px;
-  text-align: center; /* Center the title */
-  padding: 20px; /* Add padding for better visual appearance */
+  text-align: center;
+  padding: 20px;
 }
 
 .map-title-text {
-  font-family: sans-serif; /* Change the font of the title */
-  font-size: 18px; /* Adjust the font size as needed */
-  margin: 0; /* Remove default margin to prevent spacing issues */
+  font-family: sans-serif;
+  font-size: 18px;
+  margin: 0;
 }
 
 #selected-area {

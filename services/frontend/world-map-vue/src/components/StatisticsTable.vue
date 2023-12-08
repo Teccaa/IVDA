@@ -78,8 +78,8 @@ export default {
 <style scoped>
 .statistics-table {
   position: fixed;
-  bottom: 200px;
-  right: 60px;
+  bottom: 150px;
+  left: 10px;
   margin-bottom: 30px;
   width: 34%;
 }

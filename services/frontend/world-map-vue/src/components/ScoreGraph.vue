@@ -64,7 +64,7 @@ export default {
     async fetchData() {
       try {
         const response = await axios.get("/summary_table.json");
-        console.log(response.data);
+        //console.log(response.data);
         this.data = response.data;
         this.drawBarPlot();
       } catch (error) {
