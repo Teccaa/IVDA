@@ -1,5 +1,9 @@
 <template>
-  <div id="world-map"></div>
+  <div id="world-map">
+    <div class="map-title">
+      <p class="map-title-text">World Map on SDG</p>
+    </div>
+  </div>
   <div id="selected-area">
     <p v-if="selectedArea">Selected area: {{ selectedArea }}</p>
   </div>
@@ -140,16 +144,31 @@ export default {
 <style scoped>
 #world-map {
   position: fixed;
-  top: 85px;
+  top: 130px;
   left: 8px;
   height: 600px;
   width: 925px;
-  z-index: 999;
+}
+
+.map-title {
+  position: fixed;
+  top: 55px;
+  left: 360px;
+  text-align: center; /* Center the title */
+  padding: 20px; /* Add padding for better visual appearance */
+}
+
+.map-title-text {
+  font-family: sans-serif; /* Change the font of the title */
+  font-size: 18px; /* Adjust the font size as needed */
+  margin: 0; /* Remove default margin to prevent spacing issues */
 }
 
 #selected-area {
+  font-family: sans-serif;
+  text-align: center;
   position: fixed;
-  top: 50px;
-  left: 10px;
+  top: 85px;
+  left: 30px;
 }
 </style>

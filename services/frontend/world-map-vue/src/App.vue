@@ -83,7 +83,7 @@ export default {
   position: relative;
 }
 
-.banner {
+.banner { /* Banner Title for the UN SDG Goals */
   position: absolute;
   top: 0;
   left: 0;
