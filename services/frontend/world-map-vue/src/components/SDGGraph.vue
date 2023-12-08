@@ -14,6 +14,28 @@
 import axios from "axios";
 import Plotly from "plotly.js/dist/plotly";
 
+function getSDGColor(SDGid) {
+  const sdgColorMapping = {
+    1: 'rgb(229, 35, 59)',
+    2: 'rgb(221, 168, 57)',
+    3: 'rgb(76, 160, 5)',
+    4: 'rgb(197, 26, 45)',
+    5: 'rgb(255, 58, 34)',
+    6: 'rgb(39, 189, 226)',
+    7: 'rgb(252, 195, 8)',
+    8: 'rgb(161, 25, 64)',
+    9: 'rgb(252, 105, 36)',
+    10: 'rgb(221, 20, 103)',
+    11: 'rgb(252, 154, 36)',
+    12: 'rgb(191, 139, 47)',
+    13: 'rgb(62, 126, 68)',
+    14: 'rgb(10, 151, 217)',
+    15: 'rgb(86, 192, 43)',
+    16: 'rgb(3, 104, 157)',
+    17: 'rgb(25, 72, 106)',
+  };
+  return SDGid.map((id) => sdgColorMapping[id] || 'rgba(204, 204, 204)');
+}
 function getTopSDG(data, selectedCountry, selectedValue) {
   // Filter data for the selected country
   console.log('data in function ', data)
@@ -30,16 +52,23 @@ function getTopSDG(data, selectedCountry, selectedValue) {
       .map(([key, value]) => ({ score: parseInt(key.replace("_avg", "").replace('sdg', "")), value }));
 
   console.log('allScores in function ', allScores)
-  // Sort scores in descending order
+  // Sorting
   const sortedScores = allScores.sort((a, b) => b.value - a.value);
 
-  // Get the top N scores
+  // Slice
   const topScores = sortedScores.slice(0, selectedValue).map(({ score, value }) => ({
     key: `SDG ${score}`,
     value: value,
   }));
 
-  return topScores;
+  const topColors = getSDGColor(topScores.map(({ key }) => parseInt(key.replace("SDG ", ""))));
+
+  console.log("Colors in function", topColors);
+  const result = {
+    topScores: topScores,
+    topColors: topColors,
+  }
+  return result;
 }
 
 export default {
@@ -106,14 +135,18 @@ export default {
       console.log("selectedCountry:", this.selectedCountry.name);
       const countrykey = this.selectedCountry.name;
       console.log("countrykey:", countrykey);
-      const topSDGScores = getTopSDG(this.data, countrykey, this.selectedValue);
+      const xydata = getTopSDG(this.data, countrykey, this.selectedValue);
+      const topSDGScores = xydata.topScores;
+      const topSDGColors = xydata.topColors;
       console.log("topSDGscores", topSDGScores);
+      console.log("Color", topSDGColors.flat());
       let data = [
         {
-          //x: countries,
-          //y: scores,
           x: topSDGScores.map((x) => x.key),
           y: topSDGScores.map((x) => x.value),
+          marker: {
+            color: topSDGColors.flat() // Flatten the array,
+          },
           type: "bar",
         },
       ];
