@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="banner">
-      <img src="@/assets/SDG_Goals.png" alt="SDG Goals Image" />
+      <img src="@/assets/NEW_LOGO.png" alt="SDG Goals Image" />
     </div>
     <div class="dropdown">
       <label for="nrOfCountries">Number of Countries: </label>
@@ -115,7 +115,7 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  height: 45px;
+  height: 50px;
   background-color: #ccc;
   z-index: 1000;
   display: flex;
