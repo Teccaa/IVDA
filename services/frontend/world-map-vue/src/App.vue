@@ -2,6 +2,7 @@
   <div id="app">
     <div class="banner">
       <img src="@/assets/NEW_LOGO.png" alt="SDG Goals Image" />
+
     </div>
     <div class="dropdown">
       <label for="nrOfCountries">Number of Countries: </label>
@@ -111,6 +112,7 @@ export default {
 
 .banner {
   /* Banner Title for the UN SDG Goals */
+
   position: absolute;
   top: 0;
   left: 0;
@@ -132,6 +134,7 @@ export default {
 /* Number of Countries */
 .dropdown {
   position: fixed;
+
   top: 100px;
   right: 50px;
   z-index: 1000;
@@ -164,4 +167,5 @@ export default {
   bottom: 0;
   width: 100%;
 }
+
 </style>

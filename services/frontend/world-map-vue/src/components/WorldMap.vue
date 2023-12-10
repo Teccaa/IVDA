@@ -278,6 +278,7 @@ export default {
   font-family: sans-serif;
   text-align: center;
   position: fixed;
+
   top: 85px;
   left: 30px;
 }
