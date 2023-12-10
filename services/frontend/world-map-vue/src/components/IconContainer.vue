@@ -66,14 +66,14 @@ export default {
   flex-wrap: wrap; 
   justify-content: center;
   overflow-x: auto;
-  max-width: 925px; 
-  padding: 10px;
+  max-width: 1055px;
+  padding: 5px;
 }
 
 .icon-item {
   flex-basis: calc(12% - 20px);
-  margin-right: 5px;
-  margin-bottom: 8px;
+  margin-right: 1px;
+  margin-bottom: 4px;
   position: relative;
   cursor: pointer; 
   transition: transform 0.2s, box-shadow 0.2s;
@@ -87,7 +87,7 @@ export default {
 }
 
 .icon-item img {
-  width: 70px;
+  width: 85px;
   height: 50px;
 }
 
