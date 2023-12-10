@@ -1,18 +1,22 @@
 <template>
   <div id="app">
     <div class="banner">
-      <img src="@/assets/SDG_Goals.png" alt="SDG Goals Image" />  
+      <img src="@/assets/SDG_Goals.png" alt="SDG Goals Image" />
     </div>
     <div class="dropdown">
       <label for="nrOfCountries">Number of Countries: </label>
       <select id="nrOfCountries" v-model="NrOfCountries.selectedValue">
-        <option v-for="value in NrOfCountries.values" :key="value">{{ value }}</option>
+        <option v-for="value in NrOfCountries.values" :key="value">
+          {{ value }}
+        </option>
       </select>
     </div>
     <div class="SGDdropdown">
       <label for="SDG">Number of SDG: </label>
       <select id="SDG" v-model="NrOfSDG.selectedValue">
-        <option v-for="value in NrOfSDG.values" :key="value">{{ value }}</option>
+        <option v-for="value in NrOfSDG.values" :key="value">
+          {{ value }}
+        </option>
       </select>
     </div>
 
@@ -22,19 +26,27 @@
       @SDG-icon-name="handleSDGIconName"
     />
 
-    <WorldMap :selectedSDG="selectedSDG" @area-selected="handleAreaSelected"/>
+    <WorldMap :selectedSDG="selectedSDG" @area-selected="handleAreaSelected"
+    />
 
-    <StatisticsTable :documents="documents" :selectedSDG="selectedSDG" :selectedArea="selectedArea" />
+    <ScoreGraph
+      :selectedSDG="selectedSDG"
+      :selectedValue="Number(NrOfCountries.selectedValue)"
+    />
 
-    <ScoreGraph :selectedSDG="selectedSDG" :selectedValue="Number(NrOfCountries.selectedValue)"/>
+    <SDGGraph
+      :selectedCountry="selectedCountry"
+      :selected-value="Number(NrOfSDG.selectedValue)"
+      @area-selected="handleAreaSelected"
+    />
 
-    <SDGGraph :selectedCountry="selectedCountry" :selected-value="Number(NrOfSDG.selectedValue)"/>
+    />
   </div>
 </template>
 
 <script>
 import WorldMap from "@/components/WorldMap.vue";
-import StatisticsTable from "@/components/StatisticsTable.vue";
+// import StatisticsTable from "@/components/StatisticsTable.vue";
 import IconContainer from "@/components/IconContainer.vue";
 import ScoreGraph from "@/components/ScoreGraph.vue";
 import SDGGraph from "@/components/SDGGraph.vue";
@@ -44,36 +56,35 @@ export default {
     SDGGraph,
     WorldMap,
     IconContainer,
-    StatisticsTable,
+    // StatisticsTable,
     ScoreGraph,
   },
   data() {
-    
-      return {
-        NrOfCountries: {
-          values: [5, 10, 20, 50, 100],
-          selectedValue: 5
-        },
-        NrOfSDG: {
-          values: [5, 10, 17],
-          selectedValue: 17
-        },
-        icons: Array.from({ length: 17 }, (_, i) => ({
-          id: i + 1,
-          path: require(`@/assets/icons/icon${i + 1}.png`),
-        })),
-        documents: [
-          { id: 1, title: "Document 1", author: "Author 1" },
-          { id: 2, title: "Document 2", author: "Author 2" },
-        ],
-        selectedSDG: {
-          id: 1,
-          name: "No Poverty",
-        },
-        selectedArea: "Global",
-        selectedCountry: {
-            name: "Zimbabwe"
-        },
+    return {
+      NrOfCountries: {
+        values: [5, 10, 20, 50, 100],
+        selectedValue: 5,
+      },
+      NrOfSDG: {
+        values: [5, 10, 17],
+        selectedValue: 17,
+      },
+      icons: Array.from({ length: 17 }, (_, i) => ({
+        id: i + 1,
+        path: require(`@/assets/icons/icon${i + 1}.png`),
+      })),
+      documents: [
+        { id: 1, title: "Document 1", author: "Author 1" },
+        { id: 2, title: "Document 2", author: "Author 2" },
+      ],
+      selectedSDG: {
+        id: 1,
+        name: "No Poverty",
+      },
+      selectedArea: "Global",
+      selectedCountry: {
+        name: "Zimbabwe",
+      },
     };
   },
   methods: {
@@ -98,7 +109,8 @@ export default {
   position: relative;
 }
 
-.banner { /* Banner Title for the UN SDG Goals */
+.banner {
+  /* Banner Title for the UN SDG Goals */
   position: absolute;
   top: 0;
   left: 0;
@@ -117,11 +129,13 @@ export default {
   max-width: 21%;
   z-index: 2000;
 }
+/* Number of Countries */
 .dropdown {
   position: fixed;
-  top: 100px; 
-  right: 50px; 
-  z-index: 1000; 
+  top: 100px;
+  right: 50px;
+  z-index: 1000;
+  font-family: sans-serif;
 }
 .dropdown label {
   margin-right: 5px;
@@ -130,11 +144,13 @@ export default {
 .dropdown select {
   padding: 5px;
 }
+/* Number of SDG */
 .SGDdropdown {
   position: fixed;
   top: 700px;
   right: 50px;
   z-index: 1000;
+  font-family: sans-serif;
 }
 .SGDdropdown label {
   margin-right: 5px;
@@ -148,5 +164,4 @@ export default {
   bottom: 0;
   width: 100%;
 }
-
 </style>
