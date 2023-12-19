@@ -206,5 +206,4 @@ export default {
   width: 100%;
 }
 
-/* ... any additional styles you may have ... */
 </style>
